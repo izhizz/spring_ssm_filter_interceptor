@@ -10,7 +10,29 @@
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+
+
     <context:component-scan base-package="com.demo.*"/>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 对/test.html进行拦截 -->
+            <mvc:mapping path="/**"/>
+            <!-- 不对/err进行拦截 -->
+            <mvc:exclude-mapping path="/err"/>
+            <!-- 特定请求的拦截器只能有一个 -->
+            <bean class="com.demo.common.interceptor.ParamInterceptor"/>
+        </mvc:interceptor>
+
+        <mvc:interceptor>
+            <!-- 对/test.html进行拦截 -->
+            <mvc:mapping path="/**"/>
+            <!-- 不对/err进行拦截 -->
+            <mvc:exclude-mapping path="/test2/**"/>
+            <!-- 特定请求的拦截器只能有一个 -->
+            <bean class="com.demo.common.interceptor.SecondInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 
     <mvc:annotation-driven/><!--静态资源访问-->
 

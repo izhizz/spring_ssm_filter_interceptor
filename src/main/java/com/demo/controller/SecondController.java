@@ -7,21 +7,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- *
- */
-@RequestMapping("/test")
+@RequestMapping("/test2")
 @Controller
-public class TestController {
+public class SecondController {
+
+
     @Autowired
     TestMapper testMapper;
+
     @ResponseBody
     @RequestMapping("/test")
-    public int test(){
-        Test test = new Test();
+    public int test() {
+//        Test test = new Test();
 //        test.setId(1);
 //        test.setName("mingcheng");
 //        return testMapper.insert(test);
         return 0;
     }
+
 }
